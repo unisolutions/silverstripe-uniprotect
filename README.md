@@ -7,12 +7,12 @@ by checking if the value in that field is correct.
 
 ## Maintainer Contact
 
- * Elvinas Liutkevičius (Nickname: uniun)
+ * Elvinas Liutkevičius
    <elvinas (at) unisolutions (dot) eu>
 
 ## Requirements
 
- * SilverStripe framework 3.0.0+ (or SilverStripe 2.3/2.4 for 1.0.0 version)
+ * SilverStripe 3
  * Requires [SpamProtectionModule](http://silverstripe.org/spam-protection-module/)
 
 ## Installation
