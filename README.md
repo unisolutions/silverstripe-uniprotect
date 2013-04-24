@@ -13,7 +13,7 @@ by checking if the value in that field is correct.
 ## Requirements
 
  * SilverStripe 3
- * Requires [SpamProtectionModule](http://silverstripe.org/spam-protection-module/)
+ * Requires [`SpamProtection`](https://github.com/silverstripe/silverstripe-spamprotection) module
 
 ## Installation
 
@@ -30,10 +30,10 @@ If you want to use UniProtect field by itself, you can simply just include it as
 
 ### Integration with Spamprotection module
 
-This requires the [[:modules:spamprotection|spamprotection module]] to be installed, see its documentation for details. You can use this field to protect any built informs on your website, including user comments in the [[:modules:blog]] module.
+This requires the [`SpamProtection`](https://github.com/silverstripe/silverstripe-spamprotection) module to be installed, see its documentation for details. You can use this field to protect any built informs on your website, including user comments in the [`Blog`](https://github.com/silverstripe/silverstripe-blog) module.
 
 Configuration example in `mysite/_config.php`
 
 	SpamProtectorManager::set_spam_protector('UniProtectProtector');
 
-Then once you have setup this config you will need to include the spam protector field as per the instructions on the [[modules:spamprotection|spamprotection module]] page.
+Then once you have setup this config you will need to include the spam protector field as per the instructions on the [`SpamProtection`](https://github.com/silverstripe/silverstripe-spamprotection) module page.
