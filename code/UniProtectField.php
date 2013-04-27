@@ -14,13 +14,18 @@ class UniProtectField extends SpamProtectorField {
 
 		Session::clear("FormField.".$this->form->FormName().".".$this->getName().".error");
 
-		$name = $this->class . '_' . $this->getName();
 		$value = md5(mt_rand());
-		Session::set($this->class.".".$this->form->FormName().".Captcha", $value);
+		Session::set($this->class.".".$this->form->FormName().".".$this->getName(), $value);
 
 		return '
-			<input type="hidden" value="" name="'.$name.'" />
-			<script type="text/javascript"> $(function(){ $(document).on("mousemove keydown", function(e){ $("input[name='.$name.']").val("'.$value.'"); }); }) </script>
+			<input type="hidden" value="" name="'.$this->getName().'" />
+			<script type="text/javascript">
+				$(function(){
+					$(document).on("mousemove keydown", function(e){
+						$("#'.$this->form->FormName().' input[name='.$this->getName().']").val("'.$value.'");
+					});
+				});
+			</script>
 		';
 	}
 
@@ -32,10 +37,11 @@ class UniProtectField extends SpamProtectorField {
 	 * Validate cheking if the value in the field is correct
 	 */
 	public function validate($validator) {
-		$name = $this->class . '_' . $this->getName();
-		if (!isset($_REQUEST[$name]) || $_REQUEST[$name] != Session::get($this->class.".".$this->form->FormName().".Captcha")) {
+		if (!isset($_REQUEST[$this->getName()])
+			|| $_REQUEST[$this->getName()] != Session::get($this->class.".".$this->form->FormName().".".$this->getName())
+		) {
 			$validator->validationError(
-				$this->name,
+				$this->getName(),
 				_t($this->class . '.INVALID', "Sorry, but looks like that you're trying to post spam here."),
 				'validation',
 				false
