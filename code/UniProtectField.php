@@ -34,7 +34,7 @@ class UniProtectField extends SpamProtectorField {
 	}
 
 	/**
-	 * Validate cheking if the value in the field is correct
+	 * Validate checking if the value in the field is correct
 	 */
 	public function validate($validator) {
 		if (!isset($_REQUEST[$this->getName()])
