@@ -13,18 +13,13 @@ class UniProtectProtector implements SpamProtector {
 	 *
 	 * @return string
 	 */
-	function getFormField($name = "UniProtectField", $title = "UniProtect",
-		$value = null, $form = null, $rightTitle = null
-	) {
-		return new UniProtectField($name, $title, $value, $form, $rightTitle);
+	public function getFormField($name = "UniProtectField", $title = "UniProtect", $value = null) {
+		return new UniProtectField($name, $title, $value);
 	}
 
 	/**
-	 * Needed for the interface. Recaptcha does not have a feedback loop
-	 *
-	 * @return boolean
+	 * Not used by uniprotect
 	 */
-	function sendFeedback($object = null, $feedback = "") {
-		return false;
-	}
+	public function setFieldMapping($fieldMapping) {}
+
 }

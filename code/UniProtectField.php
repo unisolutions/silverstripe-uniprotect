@@ -7,7 +7,7 @@
  * Provides an {@link FormField} which allows form to validate for non-bot submissions
  * by checking if value in that field is correct. The value of this field is set using javascript events.
  */
-class UniProtectField extends SpamProtectorField {
+class UniProtectField extends FormField {
 
 	public function Field($properties = array()) {
 		Requirements::javascript(FRAMEWORK_DIR . '/thirdparty/jquery/jquery.js');
