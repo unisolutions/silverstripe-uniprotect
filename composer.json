@@ -8,7 +8,7 @@
 		"email": "elvinas@unisolutions.eu"
 	}],
 	"require": {
-		"silverstripe/spamprotection": "*"
+		"silverstripe/spamprotection": "<=1.1"
 	},
 	"minimum-stability": "dev",
 	"extra": {
