@@ -1,0 +1,5 @@
+name: UniProtect
+---
+UniProtectField:
+  jquery_included: true
+  javascript_included: true
