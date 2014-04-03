@@ -10,23 +10,28 @@
 class UniProtectField extends FormField {
 
 	public function Field($properties = array()) {
-		Requirements::javascript(FRAMEWORK_DIR . '/thirdparty/jquery/jquery.js');
+		if($this->stat('jquery_included')) {
+			Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.js");
+		}
 
 		Session::clear("FormField.".$this->form->FormName().".".$this->getName().".error");
 
 		$value = md5(mt_rand());
 		Session::set($this->class.".".$this->form->FormName().".".$this->getName(), $value);
 
-		return '
-			<input type="hidden" value="" name="'.$this->getName().'" />
-			<script type="text/javascript">
-				$(function(){
-					$(document).on("mousemove keydown", function(e){
-						$("#'.$this->form->FormName().' input[name='.$this->getName().']").val("'.$value.'");
-					});
-				});
-			</script>
-		';
+		if($this->stat('javascript_included')) {
+			Requirements::customScript(<<<JS
+		$(function(){
+			$(document).on("mousemove keydown", function(e){
+				$("#'.$this->form->FormName().' input[name='.$this->getName().']").val("'.$value.'");
+			});
+		});
+JS
+			);
+		}
+		$obj = ($properties) ? $this->customise($properties) : $this;
+		$this->extend('onBeforeRender', $this);
+		return $obj->renderWith($this->getTemplates());
 	}
 
 	public function FieldHolder($properties = array()) {
