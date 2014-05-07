@@ -20,15 +20,15 @@ class UniProtectField extends FormField {
 		Session::set($this->class.".".$this->form->FormName().".".$this->getName(), $value);
 
 		if($this->stat('javascript_included')) {
-			Requirements::customScript(<<<JS
-		$(function(){
-			$(document).on("mousemove keydown", function(e){
-				$("#'.$this->form->FormName().' input[name='.$this->getName().']").val("'.$value.'");
-			});
-		});
-JS
-			);
+			Requirements::customScript("
+				$(function(){
+					$(document).on('mousemove keydown', function(e){
+						$('#".$this->form->FormName()." input[name=".$this->getName()."]').val('".$value."');
+					});
+				});
+			");
 		}
+
 		$obj = ($properties) ? $this->customise($properties) : $this;
 		$this->extend('onBeforeRender', $this);
 		return $obj->renderWith($this->getTemplates());
