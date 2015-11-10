@@ -21,11 +21,11 @@ class UniProtectField extends FormField {
 
 		if($this->stat('javascript_included')) {
 			Requirements::customScript("
-				$(function(){
+				(function($){
 					$(document).on('mousemove keydown', function(e){
 						$('#".$this->form->FormName()." input[name=".$this->getName()."]').val('".$value."');
 					});
-				});
+				}(jQuery));
 			");
 		}
 
