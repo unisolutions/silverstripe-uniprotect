@@ -1,17 +1,28 @@
 {
-	"name": "unisolutions/silverstripe-uniprotect",
-	"type": "silverstripe-module",
-	"description": "Simple, yet good spam protection module for Silverstripe.",
-	"keywords": ["silverstripe", "spamprotection", "spam"],
-	"authors": [{
-		"name": "Elvinas Liutkevičius",
-		"email": "elvinas@unisolutions.eu"
-	}],
-	"require": {
-		"silverstripe/spamprotection": "*"
-	},
-	"minimum-stability": "dev",
-	"extra": {
-		"installer-name": "uniprotect"
-	}
+    "name": "unisolutions/silverstripe-uniprotect",
+    "type": "silverstripe-module",
+    "description": "Simple, yet good spam protection module for Silverstripe.",
+    "keywords": [
+        "silverstripe",
+        "spamprotection",
+        "spam"
+    ],
+    "authors": [
+        {
+            "name": "Elvinas Liutkevi\u010dius",
+            "email": "elvinas@unisolutions.eu"
+        }
+    ],
+    "require": {
+        "silverstripe/spamprotection": "*",
+        "silverstripe/framework": "^3.1"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "installer-name": "uniprotect"
+    },
+    "support": {
+        "issues": "https://github.com/unisolutions/silverstripe-uniprotect/issues"
+    },
+    "homepage": "https://github.com/unisolutions/silverstripe-uniprotect"
 }
